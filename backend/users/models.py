@@ -8,9 +8,14 @@ from phonenumber_field.modelfields import PhoneNumberField
 JOBS = [
     ('frontend', 'Frontend'),
     ('backend', 'Backend'),
+    ('fullstack', 'Fullstack'),
     ('mobile', 'Mobile'),
     ('devops', 'DevOps'),
     ('database', 'Database'),
+    ('ai', 'AI'),
+    ('ml', 'ML'),
+    ('ui_ux', 'UI/UX'),
+    ('game_dev', 'Game Dev'),
     ('other', 'Other'),
 ]
 
@@ -50,7 +55,8 @@ class User(AbstractUser):
 
 
 class Skills(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(
+        User, on_delete=models.CASCADE, related_name='skills')
 
     python = models.IntegerField(default=0, validators=[
                                  MinValueValidator(0), MaxValueValidator(10)])
