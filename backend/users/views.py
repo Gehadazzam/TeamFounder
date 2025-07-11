@@ -12,7 +12,7 @@ class UserViewSet(viewsets.ModelViewSet):
     parser_classes = [MultiPartParser, FormParser]
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    filterset_fields = ['job', 'skills__python', 'skills__javascript', 'skills__react', 'skills__django', 'skills__flask',
+    filterset_fields = ['job', 'email', 'phone', 'team__name', 'skills__python', 'skills__javascript', 'skills__react', 'skills__django', 'skills__flask',
                         'skills__sql', 'skills__no_sql', 'skills__java', 'skills__c', 'skills__cpp', 'skills__csharp', 'skills__php', 'skills__ruby']
 
     def get_permissions(self):

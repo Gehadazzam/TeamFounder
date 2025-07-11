@@ -24,8 +24,8 @@ class User(AbstractUser):
     email = models.EmailField(unique=True)
     phone = PhoneNumberField(unique=True)
     job = models.CharField(max_length=255, choices=JOBS)
-    # team = models.ForeignKey(
-    #     "Team", on_delete=models.CASCADE, null=True, blank=True)
+    team = models.ForeignKey(
+        'teams.Team', on_delete=models.CASCADE, null=True, blank=True, related_name='members')
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
